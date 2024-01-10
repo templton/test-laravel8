@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    $cats = \App\Models\Cat::with('owner')->get();
+
+    return view('main', compact('cats'));
+})->name('home');

@@ -6,10 +6,12 @@ use App\Models\Owner;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Cat>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Owner>
  */
-class CatFactory extends Factory
+class OwnerFactory extends Factory
 {
+    protected $model = Owner::class;
+
     /**
      * Define the model's default state.
      *
@@ -19,7 +21,7 @@ class CatFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'owner_id' => Owner::factory(),
+            'old' => $this->faker->numberBetween(10, 58),
         ];
     }
 }
