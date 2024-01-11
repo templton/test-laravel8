@@ -10,6 +10,12 @@ class Cat extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+        'owner_id',
+    ];
+
     public function owner(): BelongsTo
     {
         return $this->belongsTo(Owner::class, 'owner_id');

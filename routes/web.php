@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CatController;
+use App\Http\Controllers\OwnerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::resource('cats', CatController::class);
+Route::resource('owners', OwnerController::class);
 
 Route::get('/', function () {
     $cats = \App\Models\Cat::with('owner')->get();
