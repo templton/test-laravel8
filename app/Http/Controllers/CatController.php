@@ -18,7 +18,9 @@ class CatController extends Controller
 
         CatCreateJob::dispatch($cats[0]);
 
-        return view('cats.index', compact('cats'));
+        return response()->json($cats);
+
+//        return view('cats.index', compact('cats'));
     }
 
     /**
