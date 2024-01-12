@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\CatCreateJob;
 use App\Models\Cat;
 use App\Models\Owner;
 use Illuminate\Http\Request;
@@ -14,6 +15,8 @@ class CatController extends Controller
     public function index()
     {
         $cats = Cat::all();
+
+        CatCreateJob::dispatch($cats[0]);
 
         return view('cats.index', compact('cats'));
     }
